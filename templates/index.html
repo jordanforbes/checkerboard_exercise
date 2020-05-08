@@ -4,36 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .checkers{
-            height:50px;
-            width:50px;
-            display:inline-block
-        }
-        .row{
-            display:block;            
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
 </head>
 <body>
-    {% for y in range(0,times)%}
-        <div class="row">
-      
-        {% for x in range(0,8) %}
-
-            {% if x%2 == 0 and y%2 == 0}
-                <div class="checkers" style="background-color:{{color1}}"></div>
-            {% elif x%2 ==0 and y%2 == 1%}
-                <div class="checkers" style="background-color:{{color2}}"></div>
-            {% elif x%2 == 1 and y%2 == 0%}
-                <div class="checkers" style="background-color:{{color2}}"></div>
-            {% elif x%2 ==1 and y%2 == 1%}
-                <div class="checkers" style="background-color:{{color1}}"></div>
-            {% endif %}
+    <table>
+        {% for i in range(times): %}
+        <tr>
+            {% if i%2 ==0 %}
+                {% for i in range(0,halfTimes)%}
+            <td class="color1"></td>
+            <td class="color2"></td>
+                {%endfor%}
             
+        </tr>
+        <tr>
+            {% elif i%2 ==1 %}
+                {% for i in range(0,halfTimes)%}
+            <td class="color2"></td>
+            <td class="color1"></td>
+                {%endfor%}
+            {% endif %}
+         
+        </tr>
         {% endfor %}
-
-        </div>
-    {% endfor %}
+    </table>
 </body>
 </html>

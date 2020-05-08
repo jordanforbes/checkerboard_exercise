@@ -1,0 +1,14 @@
+.color1{
+    background-color:black;
+}
+.color2{
+    background-color:red;
+}
+td{
+    height:50px;
+    width:50px;
+    display:inline-block
+}
+.row{
+    display:block;            
+}
